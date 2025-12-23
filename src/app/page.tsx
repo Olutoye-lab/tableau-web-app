@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import Main from "@/components/Main";
+
 
 export default function Home() {
   useEffect(() => {
@@ -17,8 +19,6 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="p-6 text-center text-blue-600">
-      <h1 className="text-2xl font-bold">Next.js + TS + Tailwind Tableau Extension</h1>
-    </div>
+    <Main />
   );
 }
