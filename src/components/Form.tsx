@@ -5,8 +5,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Input } from "./ui/input"
 import { Separator } from "./ui/separator"
 import { Field, FieldDescription, FieldGroup, FieldLabel, FieldLegend, FieldSeparator, FieldSet } from "./ui/field"
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { UseTooltip } from "./UseTooltip"
+import FileCheckboxes from "./check-box"
+import { Card } from "./ui/card"
 
 export interface PageProps {
     nextPage: () => void
@@ -17,6 +19,8 @@ export interface PageProps {
 
 export default function Form({nextPage, setPayload}: PageProps) {
     const [selectValue, setSelectValue] = useState<string>(".csv")
+    const [fileName, setFileName] = useState<string>("")
+    const [fileData, setFileData] = useState<any>("")
     const [error, setError] = useState<string>("")
 
     const getDataType = (value: string) => {
@@ -34,6 +38,8 @@ export default function Form({nextPage, setPayload}: PageProps) {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
 
+        console.log("File Data", fileData)
+
         let dataType = getDataType(selectValue)
         let data: any = form.get("data")
         let server_url = form.get("server url")
@@ -46,7 +52,7 @@ export default function Form({nextPage, setPayload}: PageProps) {
         }
 
         const payload = {
-            data: await data.text(),
+            data: (form.get("data"))? await data.text(): fileData["data"],
             dataType: dataType,
             server_url: server_url,
             site_name: site_name,
@@ -58,6 +64,10 @@ export default function Form({nextPage, setPayload}: PageProps) {
         
         nextPage()
     }
+
+    useEffect(()=>{
+        setSelectValue(".csv")
+    }, [fileData])
     
 
     return (
@@ -66,10 +76,14 @@ export default function Form({nextPage, setPayload}: PageProps) {
         <FieldGroup >
             <FieldSet>
                 <FieldGroup>
+                    <div className="flex flex-row">
                     <Field>
                         <FieldLegend>Tableau Mini</FieldLegend>
                         <FieldDescription>Welcome to Mini !!. Please enter the information below to get started.</FieldDescription>
-                    </Field>
+                    </Field>       
+                    <FileCheckboxes setFileName={setFileName} setFile={setFileData}/>
+                    </div>
+
                     <div className="flex flex-row space-x-2">
                         <Field>
                             <FieldLabel  htmlFor="dataType">Data Type</FieldLabel>
@@ -78,10 +92,15 @@ export default function Form({nextPage, setPayload}: PageProps) {
                                     <SelectValue placeholder="Data Type" />
                                 </SelectTrigger>
                                 <SelectContent>
+                                    {(fileName)?
+                                    <SelectItem value=".csv">CSV File</SelectItem>:
+                                    <>
                                     <SelectItem value=".csv">CSV File</SelectItem>
                                     <SelectItem value=".json">Json file</SelectItem>
                                     <SelectItem value=".xls, .xlsx">Excel file</SelectItem>
                                     <SelectItem value="String">Postgres Connection String</SelectItem>
+                                    </>
+                                    }   
                                 </SelectContent>
                             </Select>
                         </Field>
@@ -91,8 +110,10 @@ export default function Form({nextPage, setPayload}: PageProps) {
                         <Field>
                             <FieldLabel>{selectValue || "Select a data type"}</FieldLabel> 
                             {(selectValue !== "String")?
-                                <Input required name="data" type="file" accept={selectValue} className="cursor-pointer" />:
-                                <Input required name="data" type="text" placeholder="postgresql:/ ... /mydatabase"/>
+                                (fileName)?
+                                    <Card className="h-9 flex items-start justify-center rounded-lg p-2 shadow-none font-sans">{fileName}</Card>
+                                    : <Input required name="data" type="file" accept={selectValue} className="cursor-pointer" />
+                                : <Card className="h-9 flex items-start justify-center rounded-lg p-2 shadow-none font-sans">In development!!</Card>
                             }
                         </Field>
                     </div>

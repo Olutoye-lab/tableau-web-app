@@ -1,0 +1,101 @@
+Id,Transaction_ID,Vendor_Name,Customer_Name,Currency_Code,Exchange_Rate,Tax_Amount,Total_Amount,Approval_Status,Invoice_Date
+1,TXN-4862,Global Tech Solutions,Lucas Meyer,EUR,0.92,52.73,604.16,Approved,2025-03-10
+2,TXN-1076,Blue Sky Media,Amelia Vance,CAD,1.36,382.36,2904.05,Rejected,2025-07-31
+3,TXN-6124,Apex Industrial,Noah Williams,USD,1,583.89,4173.81,Approved,2025-03-15
+4,TXN-7565,Apex Industrial,Lucas Meyer,EUR,0.92,449.52,4212.53,Rejected,2025-03-20
+5,TXN-8822,Global Tech Solutions,Ethan Hunt,GBP,0.79,527.92,3994.05,Rejected,2025-10-06
+6,TXN-1609,Summit Marketing,Aria Montgomery,JPY,150.42,189.17,1329.98,Approved,2025-10-30
+7,TXN-2941,Summit Marketing,Isabella Rossi,EUR,0.92,296.01,2052.27,Approved,2025-09-13
+8,TXN-4034,Global Tech Solutions,Aria Montgomery,USD,1,464.02,4276.71,Pending,2025-02-28
+9,TXN-8484,Apex Industrial,Aria Montgomery,CAD,1.36,624.32,4709.81,Pending,2025-11-09
+10,TXN-7488,Blue Sky Media,Aria Montgomery,USD,1,47.29,764.07,Pending,2025-02-05
+11,TXN-7687,Summit Marketing,Lucas Meyer,JPY,150.42,214.61,2798.92,Pending,2025-02-22
+12,TXN-2718,Riverside Logistics,Charlotte Gray,GBP,0.79,134.95,2223.03,Approved,2025-03-07
+13,TXN-9334,Global Tech Solutions,Sophia Chen,GBP,0.79,466.33,3950.12,Pending,2025-04-30
+14,TXN-1847,Blue Sky Media,Ethan Hunt,GBP,0.79,92.26,1708.35,Rejected,2025-10-02
+15,TXN-4618,Summit Marketing,Charlotte Gray,USD,1,56.72,695.12,Rejected,2025-08-20
+16,TXN-3908,Summit Marketing,Amelia Vance,JPY,150.42,35.42,387.92,Approved,2025-02-13
+17,TXN-2944,Blue Sky Media,Lucas Meyer,JPY,150.42,351.32,4680.88,Pending,2025-09-30
+18,TXN-9533,Blue Sky Media,Aria Montgomery,EUR,0.92,197.22,3356.55,Approved,2025-11-08
+19,TXN-9431,Riverside Logistics,Ethan Hunt,JPY,150.42,462.46,3534.13,Rejected,2025-03-10
+20,TXN-2619,Summit Marketing,Mason Reed,GBP,0.79,9.5,65.13,Approved,2025-07-24
+21,TXN-5855,Apex Industrial,Lucas Meyer,USD,1,582.06,4874.87,Approved,2025-01-13
+22,TXN-8378,Riverside Logistics,Amelia Vance,USD,1,307.3,4746.59,Rejected,2025-09-15
+23,TXN-2728,Riverside Logistics,Liam Henderson,CAD,1.36,631.83,4741.84,Approved,2025-05-17
+24,TXN-7143,Blue Sky Media,Amelia Vance,JPY,150.42,149.84,2470.61,Rejected,2025-06-11
+25,TXN-6495,Riverside Logistics,Lucas Meyer,CAD,1.36,237.53,4528.08,Pending,2025-06-17
+26,TXN-9491,Summit Marketing,Lucas Meyer,JPY,150.42,358.44,2682.12,Approved,2025-06-28
+27,TXN-2727,Riverside Logistics,Liam Henderson,USD,1,388.75,4615.03,Pending,2025-10-14
+28,TXN-1021,Blue Sky Media,Sophia Chen,GBP,0.79,404.89,3298.89,Rejected,2025-05-21
+29,TXN-3180,Apex Industrial,Mason Reed,USD,1,274.32,2067.73,Rejected,2025-12-16
+30,TXN-6709,Riverside Logistics,Noah Williams,CAD,1.36,124.71,1534.19,Pending,2025-08-31
+31,TXN-5386,Global Tech Solutions,Lucas Meyer,JPY,150.42,212.93,1755.13,Rejected,2025-06-15
+32,TXN-6718,Global Tech Solutions,Ethan Hunt,CAD,1.36,286.75,2242.37,Rejected,2025-04-12
+33,TXN-7597,Riverside Logistics,Aria Montgomery,EUR,0.92,416.49,3936.53,Pending,2025-08-18
+34,TXN-3947,Apex Industrial,Charlotte Gray,USD,1,480.89,3936.52,Pending,2025-03-01
+35,TXN-9449,Blue Sky Media,Isabella Rossi,JPY,150.42,26.32,309.95,Approved,2025-03-30
+36,TXN-1436,Riverside Logistics,Noah Williams,CAD,1.36,290.92,4987.84,Rejected,2025-10-31
+37,TXN-4965,Apex Industrial,Isabella Rossi,USD,1,277.66,2286.56,Approved,2025-07-06
+38,TXN-8833,Global Tech Solutions,Mason Reed,USD,1,529.45,3920.22,Approved,2025-11-13
+39,TXN-5804,Summit Marketing,Amelia Vance,USD,1,307.37,2541.14,Rejected,2025-04-03
+40,TXN-4867,Global Tech Solutions,Ethan Hunt,JPY,150.42,48.39,704.11,Rejected,2025-03-23
+41,TXN-6225,Summit Marketing,Isabella Rossi,EUR,0.92,105.68,981.99,Rejected,2025-09-03
+42,TXN-7417,Riverside Logistics,Ethan Hunt,EUR,0.92,296.07,2517.6,Rejected,2025-06-06
+43,TXN-3350,Apex Industrial,Noah Williams,USD,1,364.88,2712.37,Approved,2025-03-21
+44,TXN-7842,Riverside Logistics,Charlotte Gray,USD,1,103.74,1240.87,Rejected,2025-08-07
+45,TXN-6559,Summit Marketing,Sophia Chen,USD,1,37.91,650.61,Pending,2025-02-07
+46,TXN-6215,Summit Marketing,Sophia Chen,CAD,1.36,182.86,3586.02,Pending,2025-07-14
+47,TXN-6457,Apex Industrial,Sophia Chen,EUR,0.92,236.24,1763.68,Rejected,2025-10-11
+48,TXN-2983,Riverside Logistics,Sophia Chen,GBP,0.79,53.73,623.51,Approved,2025-01-05
+49,TXN-9319,Riverside Logistics,Sophia Chen,GBP,0.79,255.81,1733.14,Rejected,2025-07-13
+50,TXN-4739,Summit Marketing,Amelia Vance,EUR,0.92,138.58,1376.43,Rejected,2025-11-24
+51,TXN-9481,Riverside Logistics,Ethan Hunt,GBP,0.79,50.11,454.7,Rejected,2025-11-23
+52,TXN-6005,Blue Sky Media,Mason Reed,USD,1,293.3,2059.13,Approved,2025-02-08
+53,TXN-1697,Global Tech Solutions,Aria Montgomery,EUR,0.92,148.3,1208.91,Pending,2025-07-06
+54,TXN-5946,Summit Marketing,Liam Henderson,EUR,0.92,77.23,536.59,Rejected,2025-04-09
+55,TXN-1416,Blue Sky Media,Charlotte Gray,CAD,1.36,203.97,1370.29,Pending,2025-12-18
+56,TXN-9884,Apex Industrial,Mason Reed,GBP,0.79,329.97,2689.67,Rejected,2025-02-14
+57,TXN-7638,Global Tech Solutions,Liam Henderson,JPY,150.42,92.17,1201.88,Approved,2025-01-16
+58,TXN-6371,Apex Industrial,Liam Henderson,EUR,0.92,8.22,140.85,Rejected,2025-03-06
+59,TXN-4652,Riverside Logistics,Isabella Rossi,CAD,1.36,352.1,3405.82,Rejected,2025-09-30
+60,TXN-7614,Apex Industrial,Liam Henderson,CAD,1.36,213.62,3558.2,Approved,2025-11-01
+61,TXN-1910,Riverside Logistics,Aria Montgomery,JPY,150.42,251.63,1701.9,Rejected,2025-06-22
+62,TXN-9373,Riverside Logistics,Liam Henderson,CAD,1.36,81.59,1456.99,Rejected,2025-03-08
+63,TXN-6521,Blue Sky Media,Ethan Hunt,JPY,150.42,296.48,3513.63,Approved,2025-05-29
+64,TXN-5086,Riverside Logistics,Liam Henderson,JPY,150.42,335.68,3219,Approved,2025-04-04
+65,TXN-3275,Apex Industrial,Amelia Vance,EUR,0.92,87.38,645.68,Pending,2025-07-11
+66,TXN-6069,Blue Sky Media,Amelia Vance,JPY,150.42,127.96,1116.54,Pending,2025-09-29
+67,TXN-4694,Blue Sky Media,Liam Henderson,CAD,1.36,15.68,198.91,Pending,2025-12-26
+68,TXN-1430,Summit Marketing,Aria Montgomery,GBP,0.79,440.8,4590.27,Rejected,2025-10-17
+69,TXN-9587,Summit Marketing,Lucas Meyer,JPY,150.42,44.86,635.25,Rejected,2025-04-27
+70,TXN-1291,Blue Sky Media,Ethan Hunt,JPY,150.42,124.06,1503.2,Rejected,2025-03-05
+71,TXN-9575,Apex Industrial,Lucas Meyer,EUR,0.92,182.13,3508.04,Approved,2025-03-05
+72,TXN-3737,Blue Sky Media,Lucas Meyer,CAD,1.36,571.14,4399.78,Pending,2025-06-16
+73,TXN-6084,Blue Sky Media,Amelia Vance,JPY,150.42,311.98,4165.13,Rejected,2025-01-18
+74,TXN-2438,Blue Sky Media,Noah Williams,GBP,0.79,117.79,1751.9,Approved,2025-04-26
+75,TXN-7176,Summit Marketing,Mason Reed,USD,1,276.05,3864.75,Pending,2025-09-06
+76,TXN-6489,Blue Sky Media,Mason Reed,JPY,150.42,188.08,1372.85,Rejected,2025-01-26
+77,TXN-1871,Riverside Logistics,Noah Williams,CAD,1.36,279.19,4893.62,Rejected,2025-05-18
+78,TXN-3900,Global Tech Solutions,Ethan Hunt,EUR,0.92,239.29,3180.67,Approved,2025-09-25
+79,TXN-5447,Riverside Logistics,Lucas Meyer,JPY,150.42,87.91,1210.89,Pending,2025-09-05
+80,TXN-3788,Blue Sky Media,Liam Henderson,JPY,150.42,384.44,4926.52,Pending,2025-08-07
+81,TXN-1989,Global Tech Solutions,Lucas Meyer,EUR,0.92,520.97,4509.26,Approved,2025-10-07
+82,TXN-3423,Blue Sky Media,Charlotte Gray,EUR,0.92,190.53,1386.71,Approved,2025-10-29
+83,TXN-4137,Blue Sky Media,Charlotte Gray,CAD,1.36,258.29,2764.41,Pending,2025-10-03
+84,TXN-2441,Blue Sky Media,Charlotte Gray,USD,1,244.08,3621.58,Pending,2025-04-05
+85,TXN-2946,Summit Marketing,Lucas Meyer,EUR,0.92,130.33,1275.77,Rejected,2025-06-27
+86,TXN-6035,Apex Industrial,Aria Montgomery,CAD,1.36,86.47,998.92,Rejected,2025-09-14
+87,TXN-8826,Riverside Logistics,Charlotte Gray,CAD,1.36,349.03,3527.88,Pending,2025-10-19
+88,TXN-8961,Global Tech Solutions,Mason Reed,JPY,150.42,313.62,4718.85,Approved,2025-10-25
+89,TXN-9363,Apex Industrial,Aria Montgomery,USD,1,34.89,674.68,Pending,2025-08-09
+90,TXN-5949,Riverside Logistics,Sophia Chen,JPY,150.42,362.6,3611.42,Approved,2025-08-14
+91,TXN-2568,Riverside Logistics,Ethan Hunt,CAD,1.36,473.1,4813,Pending,2025-10-03
+92,TXN-6631,Summit Marketing,Noah Williams,EUR,0.92,16.11,154.33,Rejected,2025-07-15
+93,TXN-8764,Summit Marketing,Sophia Chen,EUR,0.92,445.33,3284.63,Approved,2025-12-15
+94,TXN-8696,Blue Sky Media,Amelia Vance,JPY,150.42,461.74,3210.76,Pending,2025-10-11
+95,TXN-9622,Apex Industrial,Charlotte Gray,CAD,1.36,240.21,2026.69,Pending,2025-03-09
+96,TXN-4299,Riverside Logistics,Lucas Meyer,EUR,0.92,30.21,279.26,Rejected,2025-09-19
+97,TXN-4764,Riverside Logistics,Liam Henderson,JPY,150.42,644.71,4349.49,Approved,2025-12-20
+98,TXN-5075,Global Tech Solutions,Sophia Chen,JPY,150.42,144.05,2077.63,Rejected,2025-09-28
+99,TXN-4030,Riverside Logistics,Aria Montgomery,CAD,1.36,320.19,3088.13,Pending,2025-01-12
+100,TXN-2955,Riverside Logistics,Isabella Rossi,JPY,150.42,191.13,3421.92,Pending,2025-07-04

@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Search, Bell, Settings } from "lucide-react"
+import { BetweenHorizontalEnd, ScanBarcode, GitCompareArrows, MapPlus, IdCard, DatabaseBackup } from "lucide-react"
 import { useState } from "react"
 import { SolidLine } from "./Lines/solid-line"
 import { DashedLine } from "./Lines/dashed-line"
@@ -12,12 +12,12 @@ interface MenuProps {
 }
 
 const buttons = [
-  { id: 0, icon: Home, label: "Home" },
-  { id: 1, icon: Search, label: "Search" },
-  { id: 2, icon: Bell, label: "Notifications" },
-  { id: 3, icon: Settings, label: "Settings" },
-  { id: 4, icon: Home, label: "Home" },
-  { id: 5, icon: Search, label: "Search" },
+  { id: 0, icon: BetweenHorizontalEnd, label: "Ingestion" },
+  { id: 1, icon: ScanBarcode, label: "Metadata Scanning" },
+  { id: 2, icon: GitCompareArrows, label: "Intent Decoding" },
+  { id: 3, icon: MapPlus, label: "Semantic Mapping" },
+  { id: 4, icon: IdCard, label: "Entity Resolution" },
+  { id: 5, icon: DatabaseBackup, label: "Confidence Analysis" },
 ]
 
 const progressLine = ({currentId, buttonId}: {currentId: number; buttonId: number}) => (

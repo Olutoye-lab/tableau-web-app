@@ -6,13 +6,13 @@ import {
 } from "@/components/ui/tooltip"
 import { Info } from "lucide-react"
 
-export function UseTooltip({info}: {info: string}) {
+export function UseTooltip({info, component}: {info: string, component?: any}) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="ghost" size="icon-sm" className="size-5"><Info className="w-4 h-4 text-muted-foreground" /></Button>
+        {(component)? component: <Button variant="ghost" size="icon-sm" className="size-5"><Info className="w-4 h-4 text-muted-foreground" /></Button>}
       </TooltipTrigger >
-      <TooltipContent side="bottom" >
+      <TooltipContent side={(component)? "top":"bottom"} >
         <p>{info}</p>
       </TooltipContent>
     </Tooltip>

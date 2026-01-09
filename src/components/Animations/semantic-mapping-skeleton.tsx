@@ -38,7 +38,7 @@ export function SemanticMappingSkeleton({ fileName = 'app/data/map/page.tsx' }: 
                     {fileName}
                 </div>
             </div>
-            <div className="flex justify-center items-center h-3/4 w-full bg-muted/50 rounded-md relative overflow-hidden">
+            <div className="flex justify-center items-center h-3/4 w-full bg-rose-100 rounded-md relative overflow-hidden">
                 <div className="relative">
                     {/* Render Lines */}
                     {Array.from({ length: NODE_COUNT_PER_SIDE * NODE_COUNT_PER_SIDE }).map((_, index) => {

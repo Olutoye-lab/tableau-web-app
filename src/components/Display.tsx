@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { ChevronRight } from "lucide-react"
 import { PageProps } from "./Form"
 import { useSSE } from "./hooks/UseSSE";
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ButtonMenu } from "./ButtonMenu";
 import LoadAnimations from "./LoadAnimations";
 import StatusBar from "./StatusBar";
@@ -11,34 +9,25 @@ function getItem(arr: Array<any>, index: number) { return index >= 0 && index < 
 
 export function DisplaySSE({prevPage, payload}: PageProps){
     const [showRectangle, setShowRectangle] = useState<boolean>(false)
-    const [buttonId, setButtonId] = useState<number>(0)
     const [currentData, setCurrentData] = useState<any | null>()
     const [AnimationId, setAnimationId] = useState<number>(0)
-    const isOnMount = useRef(false)
 
     const { messages, isConnected, isLoading, error, connect, disconnect, clearMessages } = useSSE({
-        postUrl: 'http://localhost:8000/save',
-        sseBaseUrl: 'http://localhost:8000/events',
+        postUrl: process.env.POST_URL || "",
+        sseBaseUrl: process.env.SSE_URL || "",
     });
 
-    // Update status bar data
-    useEffect(()=>{
-        if (isOnMount.current){
-            console.log(buttonId)
-            setShowRectangle(true)
+    const setId = (buttonId: number) => {
+        console.log(buttonId)
+        setShowRectangle(true)
 
-            const data = getItem(messages, buttonId)
+        const data = getItem(messages, buttonId)
 
-            console.log("DATA", data)
+        console.log("DATA", data)
 
-            if (data){
-                setCurrentData((data) ? JSON.parse(data["data"]) : null)
-            } else {
-                setCurrentData(null)
-            }
-        } 
-        isOnMount.current = true
-    }, [buttonId])
+        setCurrentData((data) ? JSON.parse(data["data"]) : null)
+
+    }
 
     // Update Animation data
     useEffect(()=>{
@@ -61,8 +50,8 @@ export function DisplaySSE({prevPage, payload}: PageProps){
         <> 
         <div className="relative space-y-6 flex flex-row justify-between">
             
-        <ButtonMenu setId={setButtonId} dataId={AnimationId}/>
-        <LoadAnimations id={AnimationId}/>
+        <ButtonMenu setId={setId} dataId={AnimationId}/>
+        <LoadAnimations id={AnimationId} results={currentData}/>
         {/* <div className="pt-8">
             <Button size="lg" onClick={prevPage} variant="outline" className="gap-2 px-8 bg-transparent">
             <ChevronRight className="w-5 h-5 rotate-180" />

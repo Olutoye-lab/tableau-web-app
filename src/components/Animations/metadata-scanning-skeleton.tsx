@@ -51,12 +51,12 @@ export function MetadataScanningSkeleton({ fileName = 'app/metadata/scan/page.ts
                     <FileScan className="w-8 h-8 text-primary animate-pulse" />
                     <Spinner />
                 </div>
-                <div className="grid grid-cols-5 gap-3 h-40 w-full p-4 bg-muted/50 rounded-md">
+                <div className="grid grid-cols-5 gap-3 h-40 w-full p-4 bg-muted/50 rounded-md border-slate-200 border-2">
                     {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, index) => (
                          <div
                             key={index}
                             className={cn(
-                                "w-full h-full rounded bg-background transition-colors duration-500 border-2",
+                                "w-full h-full rounded bg-slate-200 transition-colors duration-500 border-2",
                                 activeCells.includes(index) ? "border-primary animate-pulse bg-accent/50" : "border-transparent"
                             )}
                         />

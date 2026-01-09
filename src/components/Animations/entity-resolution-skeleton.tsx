@@ -14,7 +14,7 @@ export function EntityResolutionSkeleton({ fileName = 'app/data/resolve/page.tsx
     useEffect(() => {
         const timer = setInterval(() => {
             setActiveCluster((prev) => (prev + 1) % CLUSTER_COUNT);
-        }, 1500);
+        }, 500);
         return () => clearInterval(timer);
     }, []);
 
@@ -45,7 +45,7 @@ export function EntityResolutionSkeleton({ fileName = 'app/data/resolve/page.tsx
                     {fileName}
                 </div>
             </div>
-            <div className="flex justify-center items-center h-3/4 w-full bg-muted/50 rounded-md relative overflow-hidden">
+            <div className="flex justify-center items-center h-[270px] w-full bg-zinc-400 rounded-md relative overflow-hidden">
                 <div className="relative">
                     {/* Central Resolved Nodes */}
                     {Array.from({ length: CLUSTER_COUNT }).map((_, index) => {
@@ -55,8 +55,8 @@ export function EntityResolutionSkeleton({ fileName = 'app/data/resolve/page.tsx
                             <div
                                 key={`center-${index}`}
                                 className={cn(
-                                    "absolute w-8 h-8 rounded-full border-2 transition-all duration-500 -translate-x-1/2 -translate-y-1/2",
-                                    isActive ? "bg-accent border-accent/50 scale-110" : "bg-background border-muted"
+                                    "absolute w-8 h-8 rounded-full border-2 transition-all duration-500 -translate-x-1/2 -translate-y-1/2 z-10",
+                                    isActive ? "bg-slate-300 border-accent/50 scale-110" : "bg-background border-muted"
                                 )}
                                 style={{ left: `${pos.x}px`, top: `${pos.y}px` }}
                             />

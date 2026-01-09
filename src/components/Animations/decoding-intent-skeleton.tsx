@@ -36,7 +36,7 @@ export function DecodingIntentSkeleton({ fileName = 'app/intent/decode/page.tsx'
                     {fileName}
                 </div>
             </div>
-            <div className="flex justify-center items-center h-3/4 w-full bg-muted/50 rounded-md relative overflow-hidden">
+            <div className="flex justify-center items-center h-3/4 w-full bg-neutral-400 rounded-md relative overflow-hidden">
                 <div className="relative w-full h-full">
                     {/* Central Orb */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -58,7 +58,8 @@ export function DecodingIntentSkeleton({ fileName = 'app/intent/decode/page.tsx'
                                     style={{
                                         width: `${RADIUS}px`,
                                         transform: `rotate(${angle}rad) scaleX(${isActive ? 1 : 0.8})`,
-                                        opacity: isActive ? 1 : 0.5,
+                                        opacity: isActive ? 1 : 0,
+                                        backgroundColor: isActive ? "white": "none"
                                     }}
                                 />
                                 {/* Node */}

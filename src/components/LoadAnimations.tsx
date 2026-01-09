@@ -6,7 +6,8 @@ import { DecodingIntentSkeleton } from "@/components/Animations/decoding-intent-
 import { SemanticMappingSkeleton } from "@/components/Animations/semantic-mapping-skeleton";
 import { EntityResolutionSkeleton } from "@/components/Animations/entity-resolution-skeleton";
 import { FileCreationSkeleton } from "@/components/Animations/file-creation-skeleton";
-import { useEffect, useState } from "react";
+import { TestData } from "./Animations/final-score-skeleton";
+import FinalScoreSkeleton from "./Animations/final-score-skeleton";
 
 
 const skeletons = [
@@ -17,16 +18,16 @@ const skeletons = [
     component: DataIngestionSkeleton
   },
   {
-    id: 'decoding-intent',
-    name: 'Decoding User Intent',
-    fileName: 'Decoding User Intent',
-    component: DecodingIntentSkeleton
-  },
-  {
     id: 'metadata-scanning',
     name: 'Metadata Scanning',
     fileName: 'Metadata Scanning',
     component: MetadataScanningSkeleton
+  },
+  {
+    id: 'decoding-intent',
+    name: 'Decoding User Intent',
+    fileName: 'Decoding User Intent',
+    component: DecodingIntentSkeleton
   },
   {
     id: 'semantic-mapping',
@@ -50,17 +51,23 @@ const skeletons = [
 
 interface AnimationProps {
     id: number
+    results: any | null
 }
 
-export default function LoadAnimations({id}: AnimationProps) {
-
+export default function LoadAnimations({results, id}: AnimationProps) {
+    
     const ActiveSkeletonComponent = skeletons[id].component
 
-
+    if (results == null){
+      results = {
+        report : TestData
+      }
+    }
+    
     return (
         <Card className="w-3/4">
             <CardContent className="h-full">
-                <ActiveSkeletonComponent fileName={skeletons[id].fileName} />
+              {(id === 5)? <FinalScoreSkeleton data={results["report"]}/> :<ActiveSkeletonComponent />}
             </CardContent>
         </Card>
     )

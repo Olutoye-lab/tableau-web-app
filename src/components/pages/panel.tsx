@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import Form from "./Form"
-import { DisplaySSE } from "./Display"
+import Form from "@/components/Form"
+import { DisplaySSE } from "@/components/Display"
 
-export default function Main() {
+export default function Panel() {
   const [currentPage, setCurrentPage] = useState(0)
   const [payload, setPayload] = useState<any>()
 
@@ -22,7 +22,7 @@ export default function Main() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4" 
+    <div className="h-full flex items-center justify-center bg-gradient-to-br from-background to-muted p-4" 
     style={{
       background: "linear-gradient(117deg,rgba(247, 247, 208, 1) 0%, rgba(160, 250, 226, 1) 52%, rgba(106, 235, 235, 1) 100%)"  
     }}>

@@ -39,7 +39,9 @@ export function useSSE(options: UseSSEOptions) {
     setError(null);
 
     try {
-      const dataToSend = customPayload || payload;
+      let user_id = localStorage.getItem("user_id") || ""
+
+      const dataToSend = {...customPayload, "user_id": user_id};
 
       // STEP 1: POST request to get user_id
       abortControllerRef.current = new AbortController();
@@ -52,22 +54,23 @@ export function useSSE(options: UseSSEOptions) {
         body: JSON.stringify(dataToSend),
       });
 
-      console.log("POSTED")
-
       if (!postResponse.ok) {
         throw new Error(`HTTP error! status: ${postResponse.status}`);
       }
 
       // STEP 2: Extract user_id from response
       const responseData = await postResponse.json();
-      const receivedUserId = responseData.user_id;
+      user_id = responseData.user_id;
       
-      if (!receivedUserId) {
+      if (!user_id) {
         throw new Error('No user_id provided in response');
       }
 
-      setUserId(receivedUserId);
-      console.log('Received user_id:', receivedUserId);
+      localStorage.setItem("user_id", user_id)
+      setUserId(user_id);
+      console.log('Received user_id:', user_id)
+
+      const receivedUserId = user_id
 
       // STEP 3: Build SSE URL using user_id as route parameter
       const sseUrl = `${sseBaseUrl}/${receivedUserId}`;
