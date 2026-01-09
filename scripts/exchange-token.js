@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const code = "aPrxvF1tzpdZgIPIASk3SVUZELAgRR5a1RJ3p3VwSmgU_sLl5fYv5upgVd80FDX8ewOjxy89xA"
+const code = process.env.CODE
 
 const tokenUrl = `https://${process.env.SALESFORCE_DOMAIN || 'login'}.salesforce.com/services/oauth2/token`;
 
