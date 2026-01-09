@@ -18,13 +18,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![project_license][license-shield]][license-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -93,14 +86,13 @@ This is a project acting as the client side component for the Tableau Mini exten
     <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Logo" width="100" height="35">
   </a>
 * <a href="https://github.com/Olutoye-lab/Tableau-Mini">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/500px-Typescript.svg.png?20230616215448" alt="Logo" width="100" height="100">
+    <img src="https://repository-images.githubusercontent.com/657740231/7a6b015e-0013-4f20-990e-01fa1f8e2968" alt="Logo" width="100" height="100">
   </a>
 * <a href="https://github.com/Olutoye-lab/Tableau-Mini">
     <img src="https://tailwindcss.com/_next/static/media/tailwindcss-logotype.a1069bda.svg" alt="Logo" width="120" height="100">
   </a>
 * <a href="https://github.com/Olutoye-lab/Tableau-Mini">
     <img src="https://images.seeklogo.com/logo-png/51/1/shadcn-ui-logo-png_seeklogo-519786.png" alt="Logo" width="60" height="60">
-    <p>Shadcn</p>
   </a>
 
 
@@ -137,6 +129,7 @@ Test the full server pipeline once to get these env variables in sf_tokens.json 
 * Only if server is http://localhost:8000 (default for uvicorn)
 
 POST_URL=http://localhost:8000/save
+
 SSE_URL=http://localhost:8000/events
 
 **.env File**
@@ -168,8 +161,6 @@ SALESFORCE_REFRESH_TOKEN
     ```sh
     npm run dev
     ```
-
-
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -252,20 +243,7 @@ Thank you to the Tableau Hackathon team for providing a platform to build skill 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Max-labs/Tableau Mini.svg?style=for-the-badge
-[contributors-url]: https://github.com/Max-labs/Tableau Mini/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Max-labs/Tableau Mini.svg?style=for-the-badge
-[forks-url]: https://github.com/Max-labs/Tableau Mini/network/members
-[stars-shield]: https://img.shields.io/github/stars/Max-labs/Tableau Mini.svg?style=for-the-badge
-[stars-url]: https://github.com/Max-labs/Tableau Mini/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Max-labs/Tableau Mini.svg?style=for-the-badge
-[issues-url]: https://github.com/Max-labs/Tableau Mini/issues
-[license-shield]: https://img.shields.io/github/license/Max-labs/Tableau Mini.svg?style=for-the-badge
-[license-url]: https://github.com/Max-labs/Tableau Mini/blob/master/LICENSE.txt
-[-shield]: https://img.shields.io/badge/--black.svg?style=for-the-badge&logo=&colorB=555
-[-url]: https://.com/in/_username
-[product-screenshot]: images/screenshot.png
+
 <!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
