@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { DisplaySheet } from './display-sheet';
 import { Input } from './ui/input';
 import Papa from "papaparse";
+import { good_data, bad_data } from '@/app/sample_data';
 
 
 function FileCheckboxes({setFile, setFileName}: {setFile: Function, setFileName: Function}) {
@@ -44,41 +45,39 @@ function FileCheckboxes({setFile, setFileName}: {setFile: Function, setFileName:
 
     useEffect(()=>{
 
-        Papa.parse("/good_data.csv", {
-            download: true, // Required for fetching from URL
+        Papa.parse(good_data, {
             header: true,   // Treat first row as header
             skipEmptyLines: true,
             dynamicTyping: true,  // Convert numbers automatically
             complete: (result) => {
             setGoodData(result.data)
         },
-            error: (err) => {
+            error: (err: any) => {
             console.error("Error reading CSV:", err);
         }}
         )
 
-        Papa.parse("/bad_data.csv", {
-            download: true, // Required for fetching from URL
+        Papa.parse(bad_data, {
             header: true,   // Treat first row as header
             skipEmptyLines: true,
             dynamicTyping: true,  // Convert numbers automatically
             complete: (result) => {
             setBadData(result.data)
         },
-            error: (err) => {
+            error: (err: any) => {
             console.error("Error reading CSV:", err);
         }}
         )
-    })
+    }, [])
 
  return (
-   <div className='flex flex-col gap-1 w-1/5'>
+   <div className='flex flex-col gap-1 w-1/5 min-w-[170px]'>
     <p className='text-md italic'>Sample Datasets</p>
      {checkboxes.map((item) => (
         <div className='flex flex-row items-center justify-between gap-2 text-sm' key={item.key}>
          <Input
             type='checkbox'
-            className='rounded-xl size-5 bg-white'
+            className='rounded-xl size-4 bg-white'
             name={item.name}
             checked={item.name === checkedName}
             onChange={(e)=>(e.target.checked)? handleChange(item.name): handleChange(null)}

@@ -69,8 +69,7 @@ export class SalesforceOAuthClient {
     const newTokens = await response.json();
 
     console.log('\n⚠ Access token refreshed!');
-    console.log('Update your .env.local with:');
-    console.log('SALESFORCE_ACCESS_TOKEN=' + newTokens.access_token);
+    console.log('Update your .env.local with the new token');
     
     return {
       access_token: newTokens.access_token,

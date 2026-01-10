@@ -138,7 +138,7 @@ export function Report({reportData, reportMetadata, setReportIndex, metadataSize
 
 const renderReportList = ({reportMetadata, getReport, setIsLoading, metadata}: {reportMetadata: any, getReport: (index: number)=> void, setIsLoading: (state: boolean)=>void, metadata: ()=>void}) => {
 
-    return <div className="w-full h-full relative p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3 gap-6 bg-secondary/30">
+    return <div className="w-full h-full relative p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-3 gap-6 bg-secondary/30">
             <UseTooltip component={<div className="absolute top-2 left-2 flex items-center justify-center z-10 size-10 rounded-full border-2 border-blue-2 bg-background cursor-pointer" onClick={()=>{setIsLoading(true); metadata()}}><RefreshCw size="23"/></div>}  info="Refresh"/>
             {reportMetadata.map((item: any, index: number)=>(
                 <Card key={index} onClick={()=>{setIsLoading(true); getReport(index)}} className="cursor-pointer hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
