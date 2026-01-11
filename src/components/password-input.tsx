@@ -13,7 +13,7 @@ const PasswordInput = ({name}: {name: string}) => {
 
   return (
       <div className='relative flex flex-row'>
-        <Input id={name} type={isVisible ? 'text' : 'password'} placeholder='Password' className='pr-9' required/>
+        <Input name={name} type={isVisible ? 'text' : 'password'} placeholder='Password' className='pr-9' required/>
         <Button
           type="button"
           variant='ghost'

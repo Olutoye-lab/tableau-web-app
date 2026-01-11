@@ -13,8 +13,8 @@ export function DisplaySSE({prevPage, payload}: PageProps){
     const [AnimationId, setAnimationId] = useState<number>(0)
 
     const { messages, isConnected, isLoading, error, connect, disconnect, clearMessages } = useSSE({
-        postUrl: process.env.POST_URL || "",
-        sseBaseUrl: process.env.SSE_URL || "",
+        postUrl: process.env.NEXT_PUBLIC_POST_URL || "",
+        sseBaseUrl: process.env.NEXT_PUBLIC_SSE_URL || "",
     });
 
     const setId = (buttonId: number) => {
