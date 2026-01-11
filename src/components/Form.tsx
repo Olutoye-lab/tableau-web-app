@@ -9,6 +9,7 @@ import { FormEvent, useEffect, useState } from "react"
 import { UseTooltip } from "./UseTooltip"
 import FileCheckboxes from "./check-box"
 import { Card } from "./ui/card"
+import PasswordInput from "./password-input"
 
 export interface PageProps {
     nextPage: () => void
@@ -144,14 +145,14 @@ export default function Form({nextPage, setPayload}: PageProps) {
                                 <FieldLabel>Personal Access Token</FieldLabel>
                                 <UseTooltip info="Visit https://help.tableau.com/current/pro/desktop/en-us/useracct.htm#go-to-your-account-settings-page to get Personal access tokens. "/>
                             </div>
-                            <Input name="token" required /> 
+                            <PasswordInput name={'token'} />
                         </Field>
                         <Field>
                             <div className="flex flex-row gap-2">
                                 <FieldLabel>Token Name</FieldLabel>
                                 <UseTooltip info="Visit 'https://help.tableau.com/current/pro/desktop/en-us/useracct.htm#go-to-your-account-settings-page' to get Personal access tokens. "/>
                             </div>
-                            <Input name="token name" required /> 
+                            <PasswordInput name={'token name'}/>
                         </Field>
                     </div>
                 </FieldGroup>
