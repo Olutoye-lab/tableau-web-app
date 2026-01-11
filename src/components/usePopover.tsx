@@ -16,12 +16,11 @@ export function UsePopover({title, variant}: {title: string, variant: "link" | "
       <PopoverTrigger asChild className="flex justify-end cursor-pointer">
         <Button variant={variant}>{title}</Button>
       </PopoverTrigger>
-      <PopoverContent className="w-80">
+      <PopoverContent className="w-140">
         <Card>
             <CardContent className="flex flex-wrap">
-                <strong>Tableau Home</strong>
-                <ArrowRight />
-                <strong>Explore</strong>
+                {"To view your dataset go to Home -> Explore -> Mini Project"}
+                <p className="text-xs opacity-60">*Just add the datasource to your workbook!!</p>
             </CardContent>
         </Card>
       </PopoverContent>

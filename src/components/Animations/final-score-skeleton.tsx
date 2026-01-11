@@ -6,8 +6,8 @@ import { toast } from "sonner"
 
 
 export const TestData  ={
-    score: 70,
-    text: "This is a test description for the final score erg rty rty tru ty ut yu tyu tyu t yut yu tyu t yut yu tu t yu tyu",
+    score: "??",
+    text: "Hmm it seems there was an issue getting the dataset scores, check if the reports are available",
     fields: [
         {
             name: "Employee",
@@ -52,7 +52,7 @@ export default function FinalScoreSkeleton(data: any){
         hasRun.current += 1
     }, [data])
 
-    if (data == null || data["data"]){
+    if (( data == null || undefined) || data["data"]){
         data = TestData
     }
     
@@ -73,14 +73,14 @@ export default function FinalScoreSkeleton(data: any){
         <h1 className="font-bold text-xl"> Data Confidence Score</h1>
         <span>{data["text"]}</span>
         <div className="flex justify-end">
-            <p className=" rounded-lg border-2 w-13">{data["score"]}%</p>
+            <p className=" rounded-lg border-2 w-13">{(data["score"] === "??")? "??": data["score"]}%</p>
         </div>
-        <ProgressBar value={data["score"]}/>
+        <ProgressBar value={(data["score"] === "??")? 0: data["score"]}/>
 
         <Separator className="mb-2 mt-2"/>
 
-        <div className="grid grid-rows-2 grid-flow-col auto-cols-min gap-x-4 overflow-auto" style={{scrollbarWidth: "none", scrollbarColor: ""}}>
-        {data["fields"].map((field: any, index: number)=>(
+        <div className={(data["score"] === "??")? "text-center": "grid grid-rows-2 grid-flow-col auto-cols-min gap-x-4 overflow-auto"} style={{scrollbarWidth: "none", scrollbarColor: ""}}>
+        {(data["score"] === "??")? <div>No metadata available here</div>: data["fields"].map((field: any, index: number)=>(
             <div key={index} className="mt-4 flex flex-row gap-2 justify-between items-center rounded-xl border-2 px-3 py-1 border-blue-200 hover:bg-zinc-100">
                 <p>{field["name"]}</p>
                 <Separator orientation="vertical"/>

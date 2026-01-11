@@ -28,79 +28,8 @@ export interface MetadataProps {
 }
 
 
-export const TestMetadata: MetadataProps[] = [{
-    report_id: "000-000-000-000",
-    report_name: "Mini Report 3464",
-    column_scores: [{name: "col1", value: 10}, {name: "col2", value: 45}, {name: "col3", value: 32}, {name: "col4", value: 93}],
-    null_score: [7, 10],
-    report_score: 85,
-    created_at: ""
-    }]
-export const TestReport: ReportProps[] = [
-    {
-        id: "000-000-000-000",
-        column: "235345",
-        type: "info",
-        message: "235345",
-        status: "info"
-    },
-    {
-        id: "728ed52f",
-        column: "col1",
-        type: "info",
-        message: "100",
-        status: "info",
-    },
-    {
-        id: "728ed52f",
-        column: "col2",
-        type: "warning",
-        message: "900",
-        status: "warning",
-    },
-    {
-        id: "222",
-        column: "235345",
-        type: "critical",
-        message: "235345",
-        status: "critical"
-    },
-    {
-        id: "728ed52f",
-        column: "col1",
-        type: "info",
-        message: "100",
-        status: "info",
-    },
-    {
-        id: "728ed52f",
-        column: "col2",
-        type: "warning",
-        message: "900",
-        status: "warning",
-    },
-    {
-        id: "222",
-        column: "235345",
-        type: "info",
-        message: "235345",
-        status: "info"
-    },
-    {
-        id: "728ed52f",
-        column: "col1",
-        type: "critical",
-        message: "100",
-        status: "critical",
-    },
-    {
-        id: "728ed52f",
-        column: "col2",
-        type: "warning",
-        message: "900",
-        status: "warning",
-    },
-]
+export const TestMetadata: MetadataProps[] = [{ "report_id": "778d96d0-0888-45c9-9505-298a1f27dccd", "report_name": "Mini Report 3464", "column_scores": [{"name": "new_col", "value": 10}, {"name": "col2", "value": 45}, {"name": "col3", "value": 32}, {"name": "col4", "value": 93}], "null_score": [7, 10], "report_score": 85, "created_at": ""}]
+export const TestReport: ReportProps[] = [{"id": "1648f28c-ca97-4d97-ad88-2ed048278508", "column": "Sector_Focus", "type": "Unmapped column", "message": "Unable to map the column header 'Sector_Focus' to any exact or similar descriptions in the enterprise data dictionary. Please check if the column exists in the data dictionary before proceeding.", "status": "warning"}, {"id": "624032b2-098f-4732-9417-e420a4628432", "column": "Years_Experience", "type": "Unmapped column", "message": "Unable to map the column header 'Years_Experience' to any exact or similar descriptions in the enterprise data dictionary. Please check if the column exists in the data dictionary before proceeding.", "status": "warning"}, {"id": "5fc1983c-127f-4cb2-b66e-9647e718792a", "column": "Job_Title", "type": "Skipped Uniquness check", "message": "[Job_Title] Skipped uniqueness check (Duplicates allowed).", "status": "info"}, {"id": "4fed6fef-92da-4f34-94c4-a390eb4dca3e", "column": "Sector_Focus", "type": "Skipped Uniquness check", "message": "[Sector_Focus] Skipped uniqueness check (Duplicates allowed).", "status": "info"}, {"id": "6e539e7c-f806-4862-b5e3-0ececf0b487c", "column": "Years_Experience", "type": "Skipped Uniquness check", "message": "[Years_Experience] Skipped uniqueness check (Duplicates allowed).", "status": "info"}, {"id": "676766e3-f60d-419d-8187-9eecfbd21e1c", "column": "Annual_Salary", "type": "Uniquness check", "message": "[Annual_Salary] Skipped uniqueness check (Duplicates allowed).", "status": "info"}, {"id": "50235665-51a1-4f9d-8b44-da1af096ac6d", "column": "Performance_Rating", "type": "Skipped Uniquness check", "message": "[Performance_Rating] Skipped uniqueness check (Duplicates allowed).", "status": "info"},  {"id": "6456465-51a1-4f9d-8b44-da1af0eqedgfac6d", "column": "Job_Title", "type": "Null Overhead", "message": "Null values exist inside this field (identified as requrired)", "status": "critical"}]
 
 export function Report({reportData, reportMetadata, setReportIndex, metadataSize}: {reportData: any, reportMetadata: any, setReportIndex: (index: number)=>void, metadataSize: number}){
     return (
@@ -206,7 +135,7 @@ export function ReportOverview(){
             }
 
         } else {
-            setReportData(TestReport)
+            setReportData(FisherYatesShuffle(TestReport))
             console.log("loading false")
 
             setLoading(false)

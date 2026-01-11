@@ -63,8 +63,8 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                   className={`h-[80px] hover:border-primary hover:border-2 ${(row.getValue("status") === "warning")? "bg-yellow-300": (row.getValue("status") === "critical")? "bg-red-500": "bg-white"}`}
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="max-w-[50px] text-pretty">
+                  {row.getVisibleCells().map((cell, index) => (
+                    <TableCell key={cell.id} className={`max-w-[30px] text-pretty ${(index === 0)? "whitespace-nowrap truncate": ""}`}>
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}

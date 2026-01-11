@@ -66,7 +66,7 @@ export function ButtonMenu({setId, dataId}: MenuProps) {
 
                 {/* Label that appears on hover */}
                 <div
-                  className={`absolute left-16 whitespace-nowrap rounded-lg bg-card px-4 py-2 text-sm font-medium text-card-foreground shadow-lg transition-all duration-300 ${
+                  className={`absolute left-16 whitespace-nowrap rounded-lg bg-card px-4 py-2 text-sm font-medium text-card-foreground shadow-lg z-30 transition-all duration-300 ${
                     isHovered ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0 pointer-events-none"
                   }`}
                 >
