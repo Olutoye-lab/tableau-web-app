@@ -58,22 +58,23 @@ interface AnimationProps {
 export default function LoadAnimations({results, id}: AnimationProps) {
     const final_result = useRef<any>({})
 
-    if (id == 5){
-      final_result.current = results
+    if (id == 5 && Object.keys(final_result.current).length == 0){
+      console.log("ID", id)
+      console.log(results)
+      
+      if(results){
+        final_result.current = results
+      } else {
+        final_result.current = {report : TestData}
+      }
     }
     
     const ActiveSkeletonComponent = skeletons[id].component
-
-    if (results == null){
-      results = {
-        report : TestData
-      }
-    }
     
     return (
         <Card className="w-3/4">
             <CardContent className="h-full">
-              {(id === 5)? <FinalScoreSkeleton data={final_result.current}/> :<ActiveSkeletonComponent />}
+              {(id === 5)? <FinalScoreSkeleton data={final_result.current["report"]}/> :<ActiveSkeletonComponent />}
             </CardContent>
         </Card>
     )

@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Form from "@/components/Form"
 import { DisplaySSE } from "@/components/Display"
 
-export default function Panel() {
+export default function Panel({setLocked}:{setLocked: (state: boolean)=>void}) {
   const [currentPage, setCurrentPage] = useState(0)
   const [payload, setPayload] = useState<any>()
 
@@ -50,15 +50,15 @@ export default function Panel() {
             {/* Page 1 */}
             <div className="w-full flex-shrink-0">
               <Card className="border-none border-white " style={{flex: "none", padding: 0}}>
-                  <Form setPayload={setPayload} nextPage={nextPage}/>
+                  <Form setPayload={setPayload} nextPage={nextPage} setLocked={setLocked}/>
               </Card>
             </div>
 
             {/* Page 2 */}
             <div className="w-full flex-shrink-0">
-              <Card className="border-2 ">
+              <Card className="border-2 py-3">
                 <CardContent className="p-12 relative">
-                  <DisplaySSE nextPage={nextPage} setPayload={setPayload} payload={payload} prevPage={prevPage}/>
+                  <DisplaySSE nextPage={nextPage} setPayload={setPayload} payload={payload} prevPage={prevPage} setLocked={setLocked}/>
                 </CardContent>
               </Card>
             </div>

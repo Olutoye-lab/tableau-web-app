@@ -40,7 +40,7 @@ export function ProgressBar({ value, className, showLabel = true }: ProgressBarP
           }}
         />
         {showLabel && (
-          <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-foreground mix-blend-difference">
+          <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-foreground mix-blend-difference ml-5">
             {percentage.toFixed(0)}%
           </div>
         )}

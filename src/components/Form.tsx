@@ -16,9 +16,10 @@ export interface PageProps {
     prevPage?: () => void
     payload?: any
     setPayload: (payload: any) => void
+    setLocked: (state: boolean) => void
 }
 
-export default function Form({nextPage, setPayload}: PageProps) {
+export default function Form({nextPage, setPayload, setLocked}: PageProps) {
     const [selectValue, setSelectValue] = useState<string>(".csv")
     const [fileName, setFileName] = useState<string>("")
     const [fileData, setFileData] = useState<any>({data: []})
@@ -68,8 +69,10 @@ export default function Form({nextPage, setPayload}: PageProps) {
         }
 
         setPayload(payload)
-        
+        setLocked(true)
+
         nextPage()
+
     }
 
     useEffect(()=>{

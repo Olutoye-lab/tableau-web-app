@@ -25,7 +25,7 @@ export default function ScoreBlock({scores}: {scores: any[]}){
             
             <CardContent className="text-center flex-grow flex items-center justify-center">
                 {(activeValue.length !== 0) ?
-                <p className="text-6xl font-bold text-primary">{scores.find((item: any)=>item["name"] === activeValue)["value"]}</p>:
+                <p className="text-6xl font-bold text-primary">{scores.find((item: any)=>item["name"] === activeValue)["score"]}</p>:
                 <p className="text-muted-foreground">Please select a column</p>}
             </CardContent>
             <CardFooter className="text-sm text-muted-foreground">Quality score</CardFooter>

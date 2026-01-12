@@ -41,7 +41,7 @@ export const TestData  ={
 }
 
 
-export default function FinalScoreSkeleton(data: any){
+export default function FinalScoreSkeleton({data}: {data: any}){
     const hasRun = useRef(0)
 
     useEffect(()=>{
@@ -79,9 +79,9 @@ export default function FinalScoreSkeleton(data: any){
 
         <Separator className="mb-2 mt-2"/>
 
-        <div className={(data["score"] === "??")? "text-center": "grid grid-rows-2 grid-flow-col auto-cols-min gap-x-4 overflow-auto"} style={{scrollbarWidth: "none", scrollbarColor: ""}}>
+        <div className={(data["score"] === "??")? "text-center": "grid grid-rows-2 grid-flow-col auto-cols-min gap-x-4 overflow-auto"} style={{scrollbarWidth: "thin", scrollbarColor: ""}}>
         {(data["score"] === "??")? <div>No metadata available here</div>: data["fields"].map((field: any, index: number)=>(
-            <div key={index} className="mt-4 flex flex-row gap-2 justify-between items-center rounded-xl border-2 px-3 py-1 border-blue-200 hover:bg-zinc-100">
+            <div key={index} className="mt-4 flex flex-row gap-2 justify-between items-center rounded-xl border-2 px-3 py-1 border-blue-200 hover:bg-zinc-100 cursor-default">
                 <p>{field["name"]}</p>
                 <Separator orientation="vertical"/>
                 <div className="">{field["score"]}%</div>

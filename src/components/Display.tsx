@@ -7,7 +7,7 @@ import StatusBar from "./StatusBar";
 
 function getItem(arr: Array<any>, index: number) { return index >= 0 && index < arr.length ? arr[index]["data"] : null; }
 
-export function DisplaySSE({prevPage, payload}: PageProps){
+export function DisplaySSE({ payload, setLocked}: PageProps){
     const [showRectangle, setShowRectangle] = useState<boolean>(false)
     const [currentData, setCurrentData] = useState<any | null>()
     const [AnimationId, setAnimationId] = useState<number>(0)
@@ -25,15 +25,26 @@ export function DisplaySSE({prevPage, payload}: PageProps){
 
         console.log("DATA", data)
 
-        setCurrentData(data)
+        setCurrentData(JSON.parse(data))
 
     }
 
     // Update Animation data
     useEffect(()=>{
         if (messages.length > 0){
-            const data = messages[messages.length-1].data
-            setAnimationId(data.id)
+            const data = JSON.parse(messages[messages.length-1].data)
+
+            console.log("New data", data)
+            const id = data.id
+
+            console.log("ID", data.id)
+
+            if (id == 5 ){
+                setLocked(false)
+                setCurrentData(data)
+            }
+
+            setAnimationId(id)
         }
     }, [messages])
 
