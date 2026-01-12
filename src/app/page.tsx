@@ -52,6 +52,7 @@ export default function Start() {
           <div className="w-20 h-20 rounded-lg hover:bg-secondary flex flex-col justify-center items-center cursor-pointer data-[active=true]:bg-accent/20 data-[active=true]:text-primary"
           onClick={()=>setPage(1)}
           data-active={page===1}
+          data-testid="start-demo"
           >
             <SlidersVertical />
             <p className="text-sm mt-1">Panel</p>

@@ -21,7 +21,7 @@ export interface PageProps {
 export default function Form({nextPage, setPayload}: PageProps) {
     const [selectValue, setSelectValue] = useState<string>(".csv")
     const [fileName, setFileName] = useState<string>("")
-    const [fileData, setFileData] = useState<any>("")
+    const [fileData, setFileData] = useState<any>({data: []})
     const [error, setError] = useState<string>("")
 
     const getDataType = (value: string) => {
@@ -52,8 +52,14 @@ export default function Form({nextPage, setPayload}: PageProps) {
             setError("Please enter a data type")
         }
 
+        const sample_data: any[] = fileData["data"]
+
+        if (!form.get("data")) {
+            data = JSON.stringify(sample_data)
+        }
+
         const payload = {
-            data: (form.get("data"))? await data.text(): fileData["data"],
+            data: data,
             dataType: dataType,
             server_url: server_url,
             site_name: site_name,
@@ -131,14 +137,14 @@ export default function Form({nextPage, setPayload}: PageProps) {
                                 <FieldLabel>Server URL</FieldLabel>
                                 <UseTooltip info="For tableau cloud users: https://10ax.online.tableau.com/"/>
                             </div>
-                            <Input name="server url" required placeholder="https://10ax.online.tableau.com/" /> 
+                            <Input role="textbox" aria-label="server url" name="server url" required placeholder="https://10ax.online.tableau.com/"  /> 
                         </Field>
                         <Field>
                             <div className="flex flex-row gap-2">
                                 <FieldLabel>Site Name</FieldLabel>
                                 <UseTooltip info="Only the <site-name> is required. e.g. https://10ax.online.tableau.com/#/site/test-site. The site name is 'test-site' "/>
                             </div>
-                            <Input name="site name" required placeholder="https://10ax.online.tableau.com/#/site/<site-name>" /> 
+                            <Input role="textbox" aria-label="site" name="site name" required placeholder="https://10ax.online.tableau.com/#/site/<site-name>"/> 
                         </Field>
                         <Field>
                             <div className="flex flex-row gap-2">
@@ -161,7 +167,7 @@ export default function Form({nextPage, setPayload}: PageProps) {
 
         
         <div className="flex justify-end pt-8">
-            <Button type="submit" size="lg"  className="gap-2 px-8 cursor-pointer">
+            <Button role="button" type="submit" aria-label="submit" size="lg"  className="gap-2 px-8 cursor-pointer">
             Start
             <ChevronRight className="w-5 h-5" />
             </Button>

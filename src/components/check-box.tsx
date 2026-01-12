@@ -7,8 +7,8 @@ import { good_data, bad_data } from '@/app/sample_data';
 
 function FileCheckboxes({setFile, setFileName}: {setFile: Function, setFileName: Function}) {
     const [checkedName, setCheckedName] = useState<string | null>(null);
-    const [GoodData, setGoodData] = useState<unknown>("")
-    const [BadData, setBadData] = useState<unknown>("")
+    const [GoodData, setGoodData] = useState<any>("")
+    const [BadData, setBadData] = useState<any>("")
 
 
     const SheetData = {
@@ -77,6 +77,8 @@ function FileCheckboxes({setFile, setFileName}: {setFile: Function, setFileName:
         <div className='flex flex-row items-center justify-between gap-2 text-sm' key={item.key}>
          <Input
             type='checkbox'
+            role={(item.name === "good_data.csv")? "checkbox": ""}
+            aria-label={(item.name === "good_data.csv")? "checkbox": ""}
             className='rounded-xl size-4 bg-white'
             name={item.name}
             checked={item.name === checkedName}
