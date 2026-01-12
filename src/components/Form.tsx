@@ -55,7 +55,7 @@ export default function Form({nextPage, setPayload}: PageProps) {
         const sample_data: any[] = fileData["data"]
 
         if (!form.get("data")) {
-            data = JSON.stringify(sample_data)
+            data = sample_data
         }
 
         const payload = {

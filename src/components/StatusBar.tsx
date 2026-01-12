@@ -1,5 +1,6 @@
 import { CircleXIcon, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { obj } from "@/app/sample_statusbar_data";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import {
   Table,
@@ -113,6 +114,7 @@ interface StatusBarProps {
     setShowRectangle: (value: boolean)=>void
 }
 
+
 export default function StatusBar({showRectangle, data, setShowRectangle}: StatusBarProps){
 
   // const data = {
@@ -158,11 +160,9 @@ export default function StatusBar({showRectangle, data, setShowRectangle}: Statu
                 {displayList(data["list"])}
                 <p>{data["text2"]}</p>
               </>
-            : null}
+            : <></>}
 
-            {(data["table"])? displayTable(data["table"], columns): null }
-
-            {(data["json"])? displayJson(data["json"]): null }
+            {(data["table"])? displayTable(data["table"], columns): <></> }
 
           </CardContent>
         </Card>
