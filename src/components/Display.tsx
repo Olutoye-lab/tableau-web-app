@@ -5,7 +5,7 @@ import { ButtonMenu } from "./ButtonMenu";
 import LoadAnimations from "./LoadAnimations";
 import StatusBar from "./StatusBar";
 
-function getItem(arr: Array<any>, index: number) { return index >= 0 && index < arr.length ? arr[index] : null; }
+function getItem(arr: Array<any>, index: number) { return index >= 0 && index < arr.length ? arr[index]["data"] : null; }
 
 export function DisplaySSE({prevPage, payload}: PageProps){
     const [showRectangle, setShowRectangle] = useState<boolean>(false)
@@ -25,14 +25,14 @@ export function DisplaySSE({prevPage, payload}: PageProps){
 
         console.log("DATA", data)
 
-        setCurrentData((data) ? JSON.parse(data["data"]) : null)
+        setCurrentData(data)
 
     }
 
     // Update Animation data
     useEffect(()=>{
         if (messages.length > 0){
-            const data = JSON.parse(messages[messages.length-1].data)
+            const data = messages[messages.length-1].data
             setAnimationId(data.id)
         }
     }, [messages])

@@ -8,6 +8,7 @@ import { EntityResolutionSkeleton } from "@/components/Animations/entity-resolut
 import { FileCreationSkeleton } from "@/components/Animations/file-creation-skeleton";
 import { TestData } from "./Animations/final-score-skeleton";
 import FinalScoreSkeleton from "./Animations/final-score-skeleton";
+import { useRef } from "react";
 
 
 const skeletons = [
@@ -55,6 +56,11 @@ interface AnimationProps {
 }
 
 export default function LoadAnimations({results, id}: AnimationProps) {
+    const final_result = useRef<any>({})
+
+    if (id == 5){
+      final_result.current = results
+    }
     
     const ActiveSkeletonComponent = skeletons[id].component
 
@@ -67,7 +73,7 @@ export default function LoadAnimations({results, id}: AnimationProps) {
     return (
         <Card className="w-3/4">
             <CardContent className="h-full">
-              {(id === 5)? <FinalScoreSkeleton data={results["report"]}/> :<ActiveSkeletonComponent />}
+              {(id === 5)? <FinalScoreSkeleton data={final_result.current}/> :<ActiveSkeletonComponent />}
             </CardContent>
         </Card>
     )

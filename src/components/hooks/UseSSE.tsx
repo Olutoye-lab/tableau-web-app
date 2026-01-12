@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface SSEMessage {
-  data: string;
+  data: any;
 }
 
 interface UseSSEOptions {
@@ -97,7 +97,7 @@ export function useSSE(options: UseSSEOptions) {
       eventSource.addEventListener('start', (event) => {
         console.log('Start event:', event.data);
         const newMessage: SSEMessage = {
-          data: event.data,
+          data: JSON.parse(event.data),
         };
         setMessages((prev) => [...prev, newMessage]);
       });
