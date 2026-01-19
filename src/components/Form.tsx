@@ -44,10 +44,7 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
 
         let dataType = getDataType(selectValue)
         let data: any = form.get("data")
-        let server_url = form.get("server url")
-        let site_name = form.get("site name")
-        let token_name = form.get("token name")
-        let token = form.get("token")
+
 
         if (dataType === ""){
             setError("Please enter a data type")
@@ -62,10 +59,6 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
         const payload = {
             data: data,
             dataType: dataType,
-            server_url: server_url,
-            site_name: site_name,
-            token_name: token_name,
-            token: token
         }
 
         setPayload(payload)
@@ -133,21 +126,21 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
             <FieldSeparator />
 
             <FieldSet>
-                <FieldGroup>
+                <FieldGroup className="opacity-25 cursor-not-allowed pointer-events-none">
                     <div className="grid grid-cols-2 gap-6">
                         <Field>
                             <div className="flex flex-row gap-2">
                                 <FieldLabel>Server URL</FieldLabel>
                                 <UseTooltip info="For tableau cloud users: https://10ax.online.tableau.com/"/>
                             </div>
-                            <Input role="textbox" aria-label="server url" name="server url" required placeholder="https://10ax.online.tableau.com/"  /> 
+                            <Input role="textbox" aria-label="server url" name="server url" placeholder="https://10ax.online.tableau.com/"  /> 
                         </Field>
                         <Field>
                             <div className="flex flex-row gap-2">
                                 <FieldLabel>Site Name</FieldLabel>
                                 <UseTooltip info="Only the <site-name> is required. e.g. https://10ax.online.tableau.com/#/site/test-site. The site name is 'test-site' "/>
                             </div>
-                            <Input role="textbox" aria-label="site" name="site name" required placeholder="https://10ax.online.tableau.com/#/site/<site-name>"/> 
+                            <Input role="textbox" aria-label="site" name="site name" placeholder="https://10ax.online.tableau.com/#/site/<site-name>"/> 
                         </Field>
                         <Field>
                             <div className="flex flex-row gap-2">
@@ -168,8 +161,10 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
             </FieldSet>
         </FieldGroup>
 
-        
-        <div className="flex justify-end pt-8">
+        <p className="text-red-500 text-md opacity-100 mt-2 font-sans">Disabled Tableau publishing for public demo.</p>
+        <p className="text-md opacity-100 font-sans"> To use Auto Publishing to Tableau visit the official demo: https://tableau-mini.vercel.app/</p>
+
+        <div className="flex justify-end pt-6">
             <Button role="button" type="submit" aria-label="submit" size="lg"  className="gap-2 px-8 cursor-pointer">
             Start
             <ChevronRight className="w-5 h-5" />

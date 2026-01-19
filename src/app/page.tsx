@@ -45,7 +45,7 @@ export default function Start() {
       <div className="w-full flex flex-row" style={{height: "calc(100vh - 51px)"}}>
         <div className="relative w-[100px] h-full flex flex-col gap-2 items-center justify-center p-2">
           <div className="absolute top-10 left-0 flex items-center justify-center"><img src="logo.png" alt="Logo" width="100" height="100" className="" ></img></div>
-          <div className={`w-20 h-20 rounded-lg hover:bg-secondary flex flex-col justify-center items-center cursor-pointer data-[active=true]:bg-accent/20 data-[active=true]:text-primary ${(isLocked == true)? "pointer-events-none opacity-25 cursor-not-allowed": ""}`}
+          <div className={`w-20 h-20 rounded-lg hover:bg-secondary flex flex-col justify-center items-center data-[active=true]:bg-accent/20 data-[active=true]:text-primary ${(isLocked == true)? "pointer-events-none opacity-25 cursor-not-allowed": " cursor-pointer"}`}
           onClick={()=>setPage(0)}
           data-active={page===0}
           >
@@ -60,7 +60,7 @@ export default function Start() {
             <SlidersVertical />
             <p className="text-sm mt-1">Panel</p>
           </div>
-          <div className={`w-20 h-20 rounded-lg hover:bg-secondary flex flex-col justify-center items-center cursor-pointer data-[active=true]:bg-accent/20 data-[active=true]:text-primary ${(isLocked == true)? "pointer-events-none opacity-25 cursor-not-allowed": ""}`}
+          <div className={`w-20 h-20 rounded-lg hover:bg-secondary flex flex-col justify-center items-center data-[active=true]:bg-accent/20 data-[active=true]:text-primary ${(isLocked == true)? "pointer-events-none opacity-25 cursor-not-allowed": "cursor-pointer"}`}
           onClick={()=>setPage(2)}
           data-active={page===2}
           >

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import Form from "@/components/Form"
 import { DisplaySSE } from "@/components/Display"
+import DatasetDiffViewer from "../diff-viewer"
 
 export default function Panel({setLocked}:{setLocked: (state: boolean)=>void}) {
   const [currentPage, setCurrentPage] = useState(0)
@@ -22,7 +23,7 @@ export default function Panel({setLocked}:{setLocked: (state: boolean)=>void}) {
   }
 
   return (
-    <div className="h-full flex items-center justify-center bg-gradient-to-br from-background to-muted p-4" 
+    <div className="relative h-full flex items-center justify-center bg-gradient-to-br from-background to-muted p-4 overflow-hidden" 
     style={{
       background: "linear-gradient(117deg,rgba(247, 247, 208, 1) 0%, rgba(160, 250, 226, 1) 52%, rgba(106, 235, 235, 1) 100%)"  
     }}>

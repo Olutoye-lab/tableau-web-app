@@ -1,13 +1,16 @@
 import { useEffect, useRef } from "react"
 import { ProgressBar } from "../progress-bar"
 import { Separator } from "../ui/separator"
-import { UsePopover } from "../usePopover"
+import CsvDownloader from 'react-csv-downloader';
 import { toast } from "sonner"
+import { DownloadIcon, LucideDownload } from "lucide-react";
+import { UseTooltip } from "../UseTooltip";
 
 
 export const TestData  ={
     score: "??",
     text: "Hmm it seems there was an issue getting the dataset scores, check if the reports are available",
+    data: [{"error": "Please try again"}],
     fields: [
         {
             name: "Employee",
@@ -33,7 +36,7 @@ export const TestData  ={
             name: "Employee",
             score: 50
         },
-            {
+        {
             name: "Employee",
             score: 50
         },
@@ -41,23 +44,27 @@ export const TestData  ={
 }
 
 
-export default function FinalScoreSkeleton({data}: {data: any}){
-    const hasRun = useRef(0)
+export default function FinalScoreSkeleton({data, cleanedData}: {data: any, cleanedData: any[]}){
+    const hasRun = useRef(false)
 
     useEffect(()=>{
-        if (hasRun.current == 3){
-            const run = ()=>toast.success("Congradulations!! your just saved hours of your day. 🎉")
+        if (!hasRun.current){
+            const run = ()=>{
+                toast.success("Congradulations!! your just saved hours of your day. 🎉")
+                hasRun.current = true
+            }
             run()
         }
-        hasRun.current += 1
     }, [data])
 
-    if (( data == null || undefined) || data["data"]){
+    if ( data == null || undefined){
         data = TestData
     }
+
+    
     
     return(
-    <div className="w-full h-full rounded-xl border border-border bg-card shadow-lg p-6">
+    <div className="w-full h-full relative rounded-xl border border-border bg-card shadow-lg p-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-red-500"></span>
@@ -88,7 +95,17 @@ export default function FinalScoreSkeleton({data}: {data: any}){
             </div>
         ))}
         </div>
-        <UsePopover title="Where is your data?" variant="link" />
+
+        <CsvDownloader datas={cleanedData} filename={`mini-data-${crypto.randomUUID().slice(0, 5)}.csv`}>
+            <UseTooltip component={
+                <div className="rounded-full size-7 border-2 border-yellow-300 absolute right-30 top-6 flex items-center justify-center cursor-pointer" >
+                    <DownloadIcon size={17} />
+                </div>
+            }
+            info="Download"
+            />
+        </CsvDownloader>
+
       </div>
     </div>
     )
