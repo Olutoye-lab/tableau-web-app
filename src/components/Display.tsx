@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ButtonMenu } from "./ButtonMenu";
 import LoadAnimations from "./LoadAnimations";
 import StatusBar from "./StatusBar";
+import DatasetDiffViewer, { sample1, sample2 } from "./diff-viewer";
 
 function getItem(arr: Array<any>, index: number) { return index >= 0 && index < arr.length ? arr[index]["data"] : null; }
 
@@ -11,6 +12,9 @@ export function DisplaySSE({ payload, setLocked}: PageProps){
     const [showRectangle, setShowRectangle] = useState<boolean>(false)
     const [currentData, setCurrentData] = useState<any | null>()
     const [AnimationId, setAnimationId] = useState<number>(0)
+    const [dataset1, setDataset1] = useState<any[]>([])
+    const [dataset2, setDataset2] = useState<any[]>([])
+
 
     const { messages, isConnected, isLoading, error, connect, disconnect, clearMessages } = useSSE({
         postUrl: process.env.NEXT_PUBLIC_POST_URL || "",
@@ -42,6 +46,7 @@ export function DisplaySSE({ payload, setLocked}: PageProps){
             if (id == 5 ){
                 setLocked(false)
                 setCurrentData(data)
+                setDataset2(data["data"])
             }
 
             setAnimationId(id)
@@ -50,9 +55,16 @@ export function DisplaySSE({ payload, setLocked}: PageProps){
 
     // Send payload
     useEffect(()=>{
+
         if(payload){
             console.log("payload renderd ")
             connect(payload)
+
+            if (Array.isArray(payload["data"])){
+                setDataset1(payload["data"])
+            } else {
+                setDataset1(JSON.parse(payload["data"]))
+            }
         }
     }, [payload])
 
@@ -71,6 +83,7 @@ export function DisplaySSE({ payload, setLocked}: PageProps){
         </div> */}
         <div></div>
         </div>
+        <DatasetDiffViewer set1={dataset1} set2={dataset2}/>
         <StatusBar showRectangle={showRectangle} setShowRectangle={setShowRectangle} data={currentData} />
         </>
     )

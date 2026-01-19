@@ -74,7 +74,7 @@ export default function LoadAnimations({results, id}: AnimationProps) {
     return (
         <Card className="w-3/4">
             <CardContent className="h-full">
-              {(id === 5)? <FinalScoreSkeleton data={final_result.current["report"]}/> :<ActiveSkeletonComponent />}
+              {(id === 5)? <FinalScoreSkeleton data={final_result.current["report"]} cleanedData={final_result.current["data"]}/> :<ActiveSkeletonComponent />}
             </CardContent>
         </Card>
     )

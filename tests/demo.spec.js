@@ -35,8 +35,8 @@ test('human typing demo', async ({ page }) => {
 
   await humanType(page, "server url", 'https://10ax.online.tableau.com/');
   await humanType(page, "site", 'tableau-dev');
-  await humanType(page, "token", 'be2WR4GRRUumWfZr2xD/9Q==:QZF4TRyRHKiz5H6Rr6ZcitII0FJ8zsrd');
-  await humanType(page, "name", 'TABLEAUDEV');
+  await humanType(page, "token", process.env.TB_TOKEN);
+  await humanType(page, "name", process.env.TB_TOKEN_NAME);
 
   await page.waitForTimeout(1000);
 
