@@ -63,8 +63,10 @@ export function DisplaySSE({ payload, setLocked}: PageProps){
 
             if (Array.isArray(payload["data"])){
                 setDataset1(payload["data"])
+                console.log("data is an Array")
             } else {
                 setDataset1(JSON.parse(payload["data"]))
+                console.log("data is not an Array")
             }
         }
     }, [payload])

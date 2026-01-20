@@ -10,6 +10,7 @@ import { UseTooltip } from "./UseTooltip"
 import FileCheckboxes from "./check-box"
 import { Card } from "./ui/card"
 import PasswordInput from "./password-input"
+import { parseCSV, parseExcel } from "./utils/parse-files"
 
 export interface PageProps {
     nextPage: () => void
@@ -40,11 +41,15 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
 
-        console.log("File Data", fileData)
-
         let dataType = getDataType(selectValue)
-        let data: any = form.get("data")
 
+        let data
+
+        if (selectValue.includes("csv")){
+            data = await parseCSV(form.get("data") as File)
+        } else if (selectValue.includes("xlsx")){
+            data = await parseExcel(form.get("data") as File)
+        }
 
         if (dataType === ""){
             setError("Please enter a data type")
@@ -65,7 +70,6 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
         setLocked(true)
 
         nextPage()
-
     }
 
     useEffect(()=>{

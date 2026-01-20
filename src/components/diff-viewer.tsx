@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import UseDialogue from './utils/use-dialogue';
+import UseDialogue from './utils/use-dialog';
 
 export const sample1 = [
   {
@@ -234,8 +234,6 @@ const DatasetDiffViewer = ({set1, set2}: {set1: any[], set2: any[]}) => {
     const unchanged = diffResult.rows.filter(r => r.rowType === 'unchanged').length;
     return { added, removed, modified, unchanged };
   }, [diffResult.rows]);
-
-  const showDatasets = dataset1.length > 0 || dataset2.length > 0;
 
   return (
     <>
