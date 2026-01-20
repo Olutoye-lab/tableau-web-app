@@ -36,6 +36,7 @@ export function DisplaySSE({ payload, setLocked}: PageProps){
     // Update Animation data
     useEffect(()=>{
         if (messages.length > 0){
+            console.log(messages[messages.length-1].data)
             const data = JSON.parse(messages[messages.length-1].data)
 
             console.log("New data", data)
