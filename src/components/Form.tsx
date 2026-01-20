@@ -44,9 +44,9 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
         let data
 
         if (selectValue.includes("csv")){
-            data = await parseCSV(form.get("data") as File) || null
+            data = await parseCSV(form.get("data") as File)
         } else if (selectValue.includes("xlsx")){
-            data = await parseExcel(form.get("data") as File)  || null
+            data = await parseExcel(form.get("data") as File)
         }
 
         let dataType = getDataType(selectValue)
