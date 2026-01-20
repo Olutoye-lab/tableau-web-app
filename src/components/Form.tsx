@@ -10,6 +10,7 @@ import { UseTooltip } from "./UseTooltip"
 import FileCheckboxes from "./check-box"
 import { Card } from "./ui/card"
 import PasswordInput from "./password-input"
+import { parseCSV, parseExcel } from "./utils/parse-file"
 
 export interface PageProps {
     nextPage: () => void
@@ -40,10 +41,15 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
 
-        console.log("File Data", fileData)
+        let data
+
+        if (selectValue.includes("csv")){
+            data = await parseCSV(form.get("data") as File) || null
+        } else if (selectValue.includes("xlsx")){
+            data = await parseExcel(form.get("data") as File)  || null
+        }
 
         let dataType = getDataType(selectValue)
-        let data: any = form.get("data")
         let server_url = form.get("server url")
         let site_name = form.get("site name")
         let token_name = form.get("token name")
@@ -52,10 +58,10 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
         if (dataType === ""){
             setError("Please enter a data type")
         }
-
+ 
         const sample_data: any[] = fileData["data"]
 
-        if (!form.get("data")) {
+        if (!data || data.length == 0) {
             data = sample_data
         }
 
@@ -118,7 +124,7 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
                         <Separator orientation="vertical"/>
 
                         <Field>
-                            <FieldLabel>{selectValue || "Select a data type"}</FieldLabel> 
+                            <FieldLabel>{(selectValue===".csv")? ".csv (Recommended)": (selectValue===null)? "Select a data type": selectValue}</FieldLabel> 
                             {(selectValue !== "String")?
                                 (fileName)?
                                     <Card className="h-9 flex items-start justify-center rounded-lg p-2 shadow-none font-sans">{fileName}</Card>
