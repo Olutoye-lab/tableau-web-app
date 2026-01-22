@@ -45,20 +45,14 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
 
         let data
 
-        if (selectValue.includes("csv")){
-            data = await parseCSV(form.get("data") as File)
-        } else if (selectValue.includes("xlsx")){
-            data = await parseExcel(form.get("data") as File)
-        }
-
-        if (dataType === ""){
-            setError("Please enter a data type")
-        }
-
-        const sample_data: any[] = fileData["data"]
-
         if (!form.get("data")) {
-            data = sample_data
+            data = fileData["data"]
+        } else {
+            if (selectValue.includes("csv")){
+                data = await parseCSV(form.get("data") as File)
+            } else if (selectValue.includes("xlsx")){
+                data = await parseExcel(form.get("data") as File)
+            }
         }
 
         const payload = {
