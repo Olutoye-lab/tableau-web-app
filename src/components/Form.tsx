@@ -43,10 +43,14 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
 
         let data
 
-        if (selectValue.includes("csv")){
-            data = await parseCSV(form.get("data") as File)
-        } else if (selectValue.includes("xlsx")){
-            data = await parseExcel(form.get("data") as File)
+        if (!form.get("data")) {
+            data = fileData["data"]
+        } else {
+            if (selectValue.includes("csv")){
+                data = await parseCSV(form.get("data") as File)
+            } else if (selectValue.includes("xlsx")){
+                data = await parseExcel(form.get("data") as File)
+            }
         }
 
         let dataType = getDataType(selectValue)
@@ -54,16 +58,6 @@ export default function Form({nextPage, setPayload, setLocked}: PageProps) {
         let site_name = form.get("site name")
         let token_name = form.get("token name")
         let token = form.get("token")
-
-        if (dataType === ""){
-            setError("Please enter a data type")
-        }
- 
-        const sample_data: any[] = fileData["data"]
-
-        if (!data || data.length == 0) {
-            data = sample_data
-        }
 
         const payload = {
             data: data,
