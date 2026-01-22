@@ -11,7 +11,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/sheet-table"
+} from "@/components/ui/table"
 
   const TestData: any = {
     title: "Metadata Scanner",
